@@ -1,7 +1,5 @@
-import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { data } from 'autoprefixer';
 
 function Week({ longi, lati }) {
 
@@ -23,7 +21,6 @@ function Week({ longi, lati }) {
     const getWeekWheather = async () => {
         await axios.get(`https://api.openweathermap.org/data/3.0/onecall?lat=${strLati}&lon=${strLongi}&units=metric&exclude=minutely,hourly,current,alerts&appid=0812aca61bfe2e569c8451f63f6b7765`).then((response) => {
             const dataDaily = response.data.daily
-            console.log(dataDaily[i].alerts)
             setTemperatureMax(dataDaily[i].temp.max);
             setTemperatureMin(dataDaily[i].temp.min);
             setFeelsLike(dataDaily[i].feels_like.day)
@@ -34,7 +31,6 @@ function Week({ longi, lati }) {
     };
 
     useEffect(() => {
-        console.log(i)
         getWeekWheather()
     }, [i])
 
@@ -65,9 +61,9 @@ function Week({ longi, lati }) {
 
         <div>
             <div className='bg-sky-600 w-96 rounded-xl h-96 mt-12 pt-2'>
-                <div className='grid grid-flow-col'> 
-                <h1 className='mb-2 mt-2 ml-6 font-bold text-3xl'>Previsão Semanal</h1>
-                <img src="https://cdn-icons-png.flaticon.com/512/1779/1779940.png" alt="" className='w-14' />
+                <div className='grid grid-flow-col'>
+                    <h1 className='mb-2 mt-2 ml-6 font-bold text-3xl'>Previsão Semanal</h1>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1779/1779940.png" alt="" className='w-14' />
                 </div>
                 <div className='grid grid-cols-8 gap-6 text-left mb-6 mt-6'>
                     <button value={'seg'} onClick={index} className='ml-2 mr-2 text-s rounded-lg bg-blue-700 p-2 w-12 text-center transition hover:bg-sky-700 duration-300 delay-300 hover:animate-bounce'>Seg</button>
