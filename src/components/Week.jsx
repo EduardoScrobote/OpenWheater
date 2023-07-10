@@ -23,18 +23,16 @@ function Week({ longi, lati }) {
             const dataDaily = response.data.daily
             setTemperatureMax(dataDaily[i].temp.max);
             setTemperatureMin(dataDaily[i].temp.min);
-            setFeelsLike(dataDaily[i].feels_like.day)
-            setUvRay(dataDaily[i].uvi)
-            setClouds(dataDaily[i].clouds)
-        }
+            setFeelsLike(dataDaily[i].feels_like.day);
+            setUvRay(dataDaily[i].uvi);
+            setClouds(dataDaily[i].clouds);
+            }
         )
     };
 
     useEffect(() => {
         getWeekWheather()
     }, [i])
-
-    console.log(temperatureMax)
 
     const index = (e) => {
         switch (e.target.value) {

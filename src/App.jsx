@@ -5,7 +5,6 @@ import Daily from './components/Daily'
 import Week from './components/Week'
 
 import './App.css'
-import axios from 'axios'
 
 function App() {
 
